@@ -16,13 +16,17 @@ console.log("Creator Started");
 /*
   Processing user input
  */
-if (process.argv[2]) {
+if (process.argv[2] && process.argv[3]) {
 
-  var moduleName = process.argv[2];
+  // Checking destination directory
+
+
+  // Initializing project name
+  var moduleName = process.argv[3];
   var NAME_CAP = moduleName.toUpperCase();
   var NAME_LOW = moduleName.toLowerCase();
-  console.log('This is module name: ' + moduleName);
 
+  console.log('This is module name: ' + moduleName);
 } else {
   console.log('Please check that you have entered the right arguments');
   return;
