@@ -9,7 +9,7 @@
 /*
   Dependencies
  */
-var fs = require('fs');
+var fileSystem = require('./filesystem');
 
 console.log("Creator Started");
 
@@ -19,7 +19,9 @@ console.log("Creator Started");
 if (process.argv[2] && process.argv[3]) {
 
   // Checking destination directory
-
+  if(!fileSystem.checkDir(process.argv[2], 'Please check destination path')){
+    return;
+  }
 
   // Initializing project name
   var moduleName = process.argv[3];
@@ -27,15 +29,21 @@ if (process.argv[2] && process.argv[3]) {
   var NAME_LOW = moduleName.toLowerCase();
 
   console.log('This is module name: ' + moduleName);
+
 } else {
+
   console.log('Please check that you have entered the right arguments');
   return;
+  
 }
 
-if (!fs.existsSync('modules')) {
-  console.log('Please check that modules folder exists and try again');
-  return;
-}
+
+
+//
+//if (!fs.existsSync('modules')) {
+//  console.log('Please check that modules folder exists and try again');
+//  return;
+//}
 
 
 

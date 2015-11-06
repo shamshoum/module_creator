@@ -9,11 +9,14 @@
 /*
  Dependencies
  */
-var fs = require('fs');
+var fs = require('fs'),
+  color = require('colors');
 
 exports.checkDir = function(path, errMsg) {
   if (!fs.existsSync(path)) {
-    console.log(errMsg);
-    return;
+    console.log(errMsg.red);
+    return false;
+  } else {
+    return true;
   }
 };
